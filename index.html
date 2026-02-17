@@ -86,29 +86,73 @@
     </div>
 
     <div class="question" id="q3">
-        <h2>3. What food do I like? 🍽️</h2>
-        <button onclick="nextQuestion(false, 'q3', 'q4', 'Biryani?? Wrong 😏')">Biryani 🍛</button>
-        <button onclick="nextQuestion(true, 'q3', 'q4')">Vegetable Biryani 🥦🍛</button>
-        <button onclick="nextQuestion(false, 'q3', 'q4', 'Curd Rice? You need revision 📚')">Curd Rice 🥣</button>
+        <h2>3. What is my favorite color? 🎨</h2>
+        <button onclick="nextQuestion(false, 'q3', 'q4', 'Red? Nope 😏')">Red</button>
+        <button onclick="nextQuestion(false, 'q3', 'q4', 'Pink? Try again 😌')">Pink</button>
+        <button onclick="nextQuestion(true, 'q3', 'q4')">Blue</button>
     </div>
 
     <div class="question" id="q4">
-        <h2>4. What is our marriage date? 💍</h2>
-        <button onclick="nextQuestion(true, 'q4', 'q5')">28.09.2025</button>
-        <button onclick="nextQuestion(false, 'q4', 'q5', '27.09.2025? Are you serious 😈')">27.09.2025</button>
-        <button onclick="nextQuestion(false, 'q4', 'q5', '26.07.2025? Danger zone 😑')">26.07.2025</button>
+        <h2>4. Which city do I want to visit most? 🏙️</h2>
+        <button onclick="nextQuestion(false, 'q4', 'q5', 'Paris? Wrong 😏')">Paris</button>
+        <button onclick="nextQuestion(false, 'q4', 'q5', 'Tokyo? Nope 😌')">Tokyo</button>
+        <button onclick="nextQuestion(true, 'q4', 'q5')">Bangalore</button>
     </div>
 
     <div class="question" id="q5">
-        <h2>5. When did you first meet me? 💕</h2>
-        <button onclick="nextQuestion(false, 'q5', 'final', 'April 21? Memory lost 😏')">April 21</button>
-        <button onclick="nextQuestion(true, 'q5', 'final')">April 20</button>
-        <button onclick="nextQuestion(false, 'q5', 'final', 'April 19? Not correct 😌')">April 19</button>
+        <h2>5. What is my favorite dessert? 🍰</h2>
+        <button onclick="nextQuestion(true, 'q5', 'q6')">Chocolate Cake</button>
+        <button onclick="nextQuestion(false, 'q5', 'q6', 'Ice Cream? Nope 😌')">Ice Cream</button>
+        <button onclick="nextQuestion(false, 'q5', 'q6', 'Gulab Jamun? Try again 😏')">Gulab Jamun</button>
     </div>
 
+    <div class="question" id="q6">
+        <h2>6. What is my favorite song? 🎵</h2>
+        <button onclick="nextQuestion(true, 'q6', 'q7')">Tera Dil Pe Haq Mera Hai</button>
+        <button onclick="nextQuestion(false, 'q6', 'q7', 'Tum Hi Ho? Wrong 😌')">Tum Hi Ho</button>
+        <button onclick="nextQuestion(false, 'q6', 'q7', 'Channa Mereya? Nope 😏')">Channa Mereya</button>
+    </div>
+
+    <div class="question" id="q7">
+        <h2>7. What is my favorite drink? ☕</h2>
+        <button onclick="nextQuestion(true, 'q7', 'q8')">Coffee</button>
+        <button onclick="nextQuestion(false, 'q7', 'q8', 'Tea? Wrong 😌')">Tea</button>
+        <button onclick="nextQuestion(false, 'q7', 'q8', 'Juice? Nope 😏')">Juice</button>
+    </div>
+
+    <div class="question" id="q8">
+        <h2>8. Which season do I love most? ❄️</h2>
+        <button onclick="nextQuestion(false, 'q8', 'q9', 'Summer? Wrong 😏')">Summer</button>
+        <button onclick="nextQuestion(true, 'q8', 'q9')">Winter</button>
+        <button onclick="nextQuestion(false, 'q8', 'q9', 'Spring? Nope 😌')">Spring</button>
+    </div>
+
+    <div class="question" id="q9">
+        <h2>9. How do I like to spend weekends? 🧳</h2>
+        <button onclick="nextQuestion(true, 'q9', 'q10')">Traveling</button>
+        <button onclick="nextQuestion(false, 'q9', 'q10', 'Sleeping? Wrong 😌')">Sleep</button>
+        <button onclick="nextQuestion(false, 'q9', 'q10', 'Shopping? Not correct 😏')">Shopping</button>
+    </div>
+
+    <div class="question" id="q10">
+        <h2>10. What is my favorite hobby? 📚</h2>
+        <button onclick="nextQuestion(true, 'q10', 'q11')">Reading</button>
+        <button onclick="nextQuestion(false, 'q10', 'q11', 'Cooking? Wrong 😌')">Cooking</button>
+        <button onclick="nextQuestion(false, 'q10', 'q11', 'Painting? Nope 😏')">Painting</button>
+    </div>
+
+    <div class="question" id="q11">
+        <h2>11. Who is my favorite hero? 🎬</h2>
+        <button onclick="nextQuestion(false, 'q11', 'final', 'Rajinikanth? Wrong 😏')">Rajinikanth</button>
+        <button onclick="nextQuestion(true, 'q11', 'final')">Vijay</button>
+        <button onclick="nextQuestion(false, 'q11', 'final', 'Ajith? Nope 😌')">Ajith</button>
+    </div>
+
+    <!-- Final Result -->
     <div class="question" id="final">
         <h2 id="result"></h2>
     </div>
+
 </div>
 
 <script>
@@ -139,12 +183,12 @@
     }
 
     function showScore() {
-        let resultText = "💖 You scored " + score + " / 5 💖<br><br>";
+        let resultText = "💖 You scored " + score + " / 11 💖<br><br>";
 
-        if(score === 5){
+        if(score === 11){
             resultText += "🏆 Perfect Husband Award! I love you endlessly ❤️😘";
         } 
-        else if(score >= 3){
+        else if(score >= 7){
             resultText += "😌 Not bad… but wife training continues 💕";
         }
         else{
