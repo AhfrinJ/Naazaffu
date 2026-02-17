@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login & Quiz for My Husband ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            color: white;
+            background-image: url("wedding.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+        }
+
+        #loginBox, #questionBox {
+            background-color: rgba(0,0,0,0.7);
+            padding: 30px;
+            border-radius: 20px;
+            width: 60%;
+            margin: 150px auto;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .question {
+            display: none;
+        }
+
+        #hint {
+            font-size: 14px;
+            color: #ffddaa;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN BOX -->
+<div id="loginBox">
+    <h2>Login 💕</h2>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="checkLogin()">Login</button>
+    <div id="hint">Hint: your nick name and our special day </div>
+</div>
+
+<!-- QUESTIONS -->
+<div id="questionBox" style="display:none;">
+    <h1>💖 My Husband Love Quiz 💖</h1>
+
+    <div class="question" id="q1">
+        <h2>1. Do you love me? ❤️</h2>
+        <button onclick="nextQuestion(true, 'q1', 'q2')">Yes 💕</button>
+        <button onclick="nextQuestion(false, 'q1', 'q2', 'No way 😏 That is wrong!')">No 😅</button>
+        <button onclick="nextQuestion(false, 'q1', 'q2', 'Maybe?? Dangerous answer 😜')">Maybe 🤭</button>
+    </div>
+
+    <div class="question" id="q2">
+        <h2>2. What will be your baby name? 👶</h2>
+        <button onclick="nextQuestion(false, 'q2', 'q3', 'Samad? Hmm… focus please 😂')">Samad</button>
+        <button onclick="nextQuestion(true, 'q2', 'q3')">Ahaan</button>
+        <button onclick="nextQuestion(false, 'q2', 'q3', 'Syed Imran? Not impressed 😌')">Syed Imran</button>
+    </div>
+
+    <div class="question" id="q3">
+        <h2>3. What food do I like? 🍽️</h2>
+        <button onclick="nextQuestion(false, 'q3', 'q4', 'Biryani?? Wrong 😏')">Biryani 🍛</button>
+        <button onclick="nextQuestion(true, 'q3', 'q4')">Vegetable Biryani 🥦🍛</button>
+        <button onclick="nextQuestion(false, 'q3', 'q4', 'Curd Rice? You need revision 📚')">Curd Rice 🥣</button>
+    </div>
+
+    <div class="question" id="q4">
+        <h2>4. What is our marriage date? 💍</h2>
+        <button onclick="nextQuestion(true, 'q4', 'q5')">28.09.2025</button>
+        <button onclick="nextQuestion(false, 'q4', 'q5', '27.09.2025? Are you serious 😈')">27.09.2025</button>
+        <button onclick="nextQuestion(false, 'q4', 'q5', '26.07.2025? Danger zone 😑')">26.07.2025</button>
+    </div>
+
+    <div class="question" id="q5">
+        <h2>5. When did you first meet me? 💕</h2>
+        <button onclick="nextQuestion(false, 'q5', 'final', 'April 21? Memory lost 😏')">April 21</button>
+        <button onclick="nextQuestion(true, 'q5', 'final')">April 20</button>
+        <button onclick="nextQuestion(false, 'q5', 'final', 'April 19? Not correct 😌')">April 19</button>
+    </div>
+
+    <div class="question" id="final">
+        <h2 id="result"></h2>
+    </div>
+</div>
+
+<script>
+    let score = 0;
+
+    function checkLogin() {
+        const user = document.getElementById("username").value;
+        const pass = document.getElementById("password").value;
+
+        if(user === "naaz" && pass === "2809") {
+            alert("Login successful 💖");
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("questionBox").style.display = "block";
+            document.getElementById("q1").style.display = "block";
+        } else {
+            alert("Wrong username or password 😏 Try again!");
+        }
+    }
+
+    function nextQuestion(correct, currentId, nextId, message="") {
+        if(!correct && message) alert(message); // show popup if wrong
+        if(correct) score++;
+
+        document.getElementById(currentId).style.display = "none";
+        document.getElementById(nextId).style.display = "block";
+
+        if(nextId === "final") showScore();
+    }
+
+    function showScore() {
+        let resultText = "💖 You scored " + score + " / 5 💖<br><br>";
+
+        if(score === 5){
+            resultText += "🏆 Perfect Husband Award! I love you endlessly ❤️😘";
+        } 
+        else if(score >= 3){
+            resultText += "😌 Not bad… but wife training continues 💕";
+        }
+        else{
+            resultText += "😏 Extra husband coaching required immediately!";
+        }
+
+        document.getElementById("result").innerHTML = resultText;
+    }
+</script>
+
+</body>
+</html>
